@@ -70,11 +70,11 @@ function Teachers() {
       <div className="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 className="h3 mb-0 text-gray-800">User Information</h1>
         <Link
-          to={"/create-teacher"}
+          to={"/create-user"}
           className="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"
         >
           <i className="fas fa-download fa-sm text-white-50"></i> Create New
-          Teacher
+          User
         </Link>
       </div>
       <p className="mb-4">
@@ -119,11 +119,11 @@ function Teachers() {
                     <td>{teacher.salary}</td>
                     <td>
                       {" "}
-                      <Link to={`/view-teacher/${teacher.id}`}>
+                      <Link to={`/view-user/${teacher.id}`}>
                         {" "}
                         <button className="btn btn-primary mx-2"> View</button>
                       </Link>
-                      <Link to={`/edit-teacher/${teacher.id}`}>
+                      <Link to={`/edit-user/${teacher.id}`}>
                         {" "}
                         <button className="btn btn-warning me-2"> Edit</button>
                       </Link>

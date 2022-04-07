@@ -3,36 +3,30 @@ import { useNavigate } from "react-router-dom";
 import { useFormik } from "formik";
 import axios from "axios";
 
-function CreateTeacher() {
+function CreateUser() {
   let navigate = useNavigate();
   let formik = useFormik({
     initialValues: {
       name: "",
-      position: "",
-      office: "",
-      age: 0,
-      startdate: "",
-      salary: 0,
+      email: "",
+      phone: 0,
+      password: "",
+      repassword: "",
     },
     validate: (values) => {
       const errors = {};
       if (values.name === "") {
         errors.name = "Please Enter Your Name";
-        if (values.position === "") {
-          errors.position = "Please Enter job Position";
+        if (values.email === "") {
+          errors.email = "Please Enter E-mail";
         }
-        if (values.office === "") {
-          errors.office = "Please Enter Office Location";
+        if (values.phone === 0) {
+          errors.phone = "Please Enter Phone No.";
         }
 
-        if (values.age === 0 || values.age < 18) {
-          errors.age = "Please Enter age it should be above 18";
-        }
-        if (values.salary === 0 || values.salary < 5000) {
-          errors.salary = "Please Enter Salary and it should be above Rs.5000";
-        }
-        if (values.startdate === "") {
-          errors.startdate = "Please Enter Start Date";
+      
+        if (values.password === "") {
+          errors.startdate = "Please Enter password";
         }
         return errors;
       }
@@ -60,7 +54,7 @@ function CreateTeacher() {
         className="row g-3"
         onSubmit={async () => {
           await formik.handleSubmit();
-          navigate("/teachers");
+          navigate("/dashboard");
         }}
       >
         <div className="col-md-4 col-lg-4 col-xl-4">
@@ -77,68 +71,56 @@ function CreateTeacher() {
           <span style={{ color: "red" }}>{formik.errors.name}</span>
         </div>
         <div className="col-md-4 col-lg-4 col-xl-4">
-          <label className="form-label">Position </label>
+          <label className="form-label">Email </label>
           <input
-            type="text"
+            type="email"
             className="form-control"
-            id="position"
-            name="position"
+            id="email"
+            name="email"
             onChange={formik.handleChange}
-            value={formik.values.position}
-            style={{ border: formik.errors.position ? "1px solid red" : "" }}
+            value={formik.values.email}
+            style={{ border: formik.errors.email ? "1px solid red" : "" }}
           />
-          <span style={{ color: "red" }}>{formik.errors.position}</span>
+          <span style={{ color: "red" }}>{formik.errors.email}</span>
         </div>
+       
+     
         <div className="col-md-4 col-lg-4 col-xl-4">
-          <label className="form-label">Office Location</label>
-
+          <label className="form-label">Phone No.</label>
           <input
-            type="text"
+            type={"tel"}
             className="form-control"
-            id="office"
-            name="office"
-            style={{ border: formik.errors.office ? "1px solid red" : "" }}
-            onChange={formik.handleChange}
-            value={formik.values.office}
-          />
-          <span style={{ color: "red" }}>{formik.errors.office}</span>
-        </div>
-        <div className="col-md-4 col-lg-4 col-xl-4">
-          <label className="form-label">Age</label>
-          <input
-            type="number"
-            className="form-control"
-            id="age"
-            name="age"
+            id="phone"
+            name="phone"
             required
             onChange={formik.handleChange}
-            value={formik.values.age}
+            value={formik.values.phone}
           />
-          <span style={{ color: "red" }}>{formik.errors.age}</span>
+          <span style={{ color: "red" }}>{formik.errors.phone}</span>
         </div>
         <div className="col-md-4 col-lg-4 col-xl-4">
-          <label className="form-label">Start Date</label>
+          <label className="form-label">Create Password</label>
           <input
-            type="date"
+            type="password"
             className="form-control"
-            id="startdate"
-            name="startdate"
+            id="password"
+            name="password"
             onChange={formik.handleChange}
-            value={formik.values.startdate}
+            value={formik.values.password}
           />
-          <span style={{ color: "red" }}>{formik.errors.startdate}</span>
+          <span style={{ color: "red" }}>{formik.errors.password}</span>
         </div>
         <div className="col-md-4 col-lg-4 col-xl-4">
-          <label className="form-label">Salary</label>
+          <label className="form-label">Re-Enter Password</label>
           <input
-            type="number"
+            type="password"
             className="form-control"
-            id="salary"
-            name="salary"
+            id="password"
+            name="password"
             onChange={formik.handleChange}
-            value={formik.values.salary}
+            value={formik.values.password}
           />
-          <span style={{ color: "red" }}>{formik.errors.salary}</span>
+          <span style={{ color: "red" }}>{formik.errors.password}</span>
         </div>
 
         <div className="col-12">
@@ -155,4 +137,4 @@ function CreateTeacher() {
   );
 }
 
-export default CreateTeacher;
+export default CreateUser;

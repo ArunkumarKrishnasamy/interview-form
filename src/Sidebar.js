@@ -15,7 +15,7 @@ function Sidebar() {
           <i className="fas fa-laugh-wink"></i>
         </div>
         <div className="sidebar-brand-text mx-3">
-          SB Admin <sup>2</sup>
+          HOME <sup>2</sup>
         </div>
       </Link>
 
@@ -35,16 +35,11 @@ function Sidebar() {
       <li className="nav-item">
         <Link className="nav-link" to={"/teachers"}>
           <i className="fas fa-fw fa-chart-area"></i>
-          <span>Teachers</span>
+          <span>Users</span>
         </Link>
       </li>
 
-      <li className="nav-item">
-        <Link className="nav-link" to={"/students"}>
-          <i className="fas fa-fw fa-table"></i>
-          <span>Students</span>
-        </Link>
-      </li>
+      
 
       <hr className="sidebar-divider d-none d-md-block" />
 

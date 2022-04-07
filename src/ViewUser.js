@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import { UserProvider } from "./UserContext";
-function ViewTeacher() {
+function ViewUser() {
   let params = useParams();
 
   const [teacher, setTeacher] = useState([]);
@@ -23,7 +23,7 @@ function ViewTeacher() {
   return (
     <div>
       <div id="content">
-        <h1 className="h3 mb-0 text-gray-800">Teacher Information</h1>
+        <h1 className="h3 mb-0 text-gray-800">Users Information</h1>
         <h1>{teacher.id}</h1>
         <h1>{teacher.name}</h1>
         <h4>{teacher.position}</h4>
@@ -40,4 +40,4 @@ function ViewTeacher() {
   );
 }
 
-export default ViewTeacher;
+export default ViewUser;

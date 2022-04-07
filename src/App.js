@@ -6,23 +6,19 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Topbar from "./Topbar";
 import Dashboard from "./Dashboard";
 import Teachers from "./Teachers";
-import CreateTeacher from "./CreateTeacher";
+import CreateUser from "./CreateUser";
 import { useState } from "react";
 import { UserProvider } from "./UserContext";
-import ViewTeacher from "./ViewTeacher";
-import EditTeacher from "./EditTeacher";
-import Students from "./Students";
-import ViewStudent from "./ViewStudent";
-import EditStudent from "./EditStudent";
-import CreateStudent from "./CreateStudent";
-
+import ViewUser from "./ViewUser";
+import Login from "./Login";
+import Plans from "./Plans";
 function App() {
   const [teachers, setTeachers] = useState([]);
-
+  
   return (
     <BrowserRouter>
       <div className="App">
-        <UserProvider value={{ teachers, setTeachers }}>
+        <UserProvider>
           <div id="wrapper">
             <Sidebar />
             <div id="content-wrapper" className="d-flex flex-column">
@@ -32,13 +28,10 @@ function App() {
                   <Routes>
                     <Route path="/dashboard" element={<Dashboard />} />
                     <Route path="/teachers" element={<Teachers />} />
-                    <Route path="/create-teacher" element={<CreateTeacher />} />
-                    <Route path="/view-teacher/:id" element={<ViewTeacher />} />
-                    <Route path="/edit-teacher/:id" element={<EditTeacher />} />
-                    <Route path="/students" element={<Students/>}/>
-                    <Route path="/view-student/:id" element={<ViewStudent/>}/>
-                    <Route path="/edit-student/:id" element={<EditStudent/>}/>
-                    <Route path="/create-student" element={<CreateStudent/>}/>
+                    <Route path="/create-user" element={<CreateUser />} />
+                    <Route path="/view-user/:id" element={<ViewUser />} />
+                    <Route path="/login-user" element={<Login />} />
+                    <Route path="/plans" element={<Plans/>}/>
                   </Routes>
                 </div>
               </div>
